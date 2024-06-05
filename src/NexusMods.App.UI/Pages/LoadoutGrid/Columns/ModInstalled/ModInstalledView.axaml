@@ -14,6 +14,7 @@
     <TextBlock Classes="BodyMDNormal"
         VerticalAlignment="Center"
         TextTrimming="CharacterEllipsis"
-        x:Name="InstalledTextBlock" />
+        x:Name="InstalledTextBlock">
+    </TextBlock>
 </reactiveUi:ReactiveUserControl>
 

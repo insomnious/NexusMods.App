@@ -1,22 +1,26 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        >
     <Design.PreviewWith>
         <Border Padding="20" Classes="Low">
-            <DataGrid CanUserReorderColumns="True"
-                      CanUserResizeColumns="True"
-                      CanUserSortColumns="True">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name"
-                                        Width="SizeToCells"
-                                        Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="Age"
-                                        Width="SizeToCells"
-                                        Binding="{Binding Age}" />
-                    <DataGridTextColumn Header="Occupation"
-                                        Width="SizeToCells"
-                                        Binding="{Binding Occupation}" />
-                </DataGrid.Columns>
-            </DataGrid>
+            <Grid Width="700" Height="250">
+                <DataGrid
+                    HeadersVisibility="All"
+                    CanUserReorderColumns="False"
+                    CanUserResizeColumns="False"
+                    CanUserSortColumns="True"
+                    Width="600" 
+                    Height="200" 
+                    HorizontalAlignment="Left">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="NAME" Width="*"  />
+                        <DataGridTextColumn Header="VERSION" Width="120" />
+                        <DataGridTextColumn Header="CATEGORY" Width="120" />
+                        <DataGridTextColumn Header="INSTALLED" Width="120" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            
         </Border>
     </Design.PreviewWith>
 
@@ -54,7 +58,7 @@
 
     <Style Selector="DataGridColumnHeader TextBlock">
         <Setter Property="Theme" Value="{StaticResource TitleXSSemiTheme}" />
-        <Setter Property="Foreground" Value="{StaticResource NeutralStrongBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource NeutralModerate}" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
@@ -84,7 +88,11 @@
 
     <Style Selector="DataGridCell TextBlock">
         <Setter Property="Theme" Value="{StaticResource BodyMDNormalTheme}" />
-        <Setter Property="Foreground" Value="{StaticResource NeutralStrongBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource NeutralTranslucentSubdued}" />
         <Setter Property="Margin" Value="0" />
+    </Style>
+    
+    <Style Selector="DataGridCell TextBlock#NameTextBox">
+        <Setter Property="Foreground" Value="{StaticResource NeutralModerate}" />
     </Style>
 </Styles>

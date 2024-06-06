@@ -1,6 +1,7 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         >
+    
     <Design.PreviewWith>
         <Border Padding="20" Classes="Low">
             <Grid Width="700" Height="250">
@@ -30,9 +31,15 @@
         <Setter Property="Background" Value="{StaticResource SurfaceTransparentBrush}" />
     </Style>
     
+    <!-- first column -->
     <Style Selector="DataGridCell:nth-child(1)">
         <Setter Property="Padding" Value="24,0,0,0" />
+        
+        <Style Selector="^ TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource NeutralModerate}" />
+        </Style>
     </Style>
+    
 
     <Style Selector="DataGridColumnHeader">
         <Setter Property="Background" Value="{StaticResource SurfaceTransparentBrush}" />
@@ -92,7 +99,4 @@
         <Setter Property="Margin" Value="0" />
     </Style>
     
-    <Style Selector="DataGridCell TextBlock#NameTextBox">
-        <Setter Property="Foreground" Value="{StaticResource NeutralModerate}" />
-    </Style>
 </Styles>

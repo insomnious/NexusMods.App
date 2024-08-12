@@ -1,6 +1,7 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:icons="clr-namespace:NexusMods.Icons;assembly=NexusMods.Icons">
+        xmlns:icons="clr-namespace:NexusMods.Icons;assembly=NexusMods.Icons"
+        xmlns:controls="clr-namespace:NexusMods.App.UI.Controls;assembly=NexusMods.App.UI">
 
     <!-- Preview -->
     <Design.PreviewWith>
@@ -31,6 +32,12 @@
             <!-- Standard Buttons -->
             <StackPanel Classes="HorizontalShowcase" Orientation="Horizontal">
 
+                <StackPanel Classes="VerticalTwoButtonStack" Orientation="Vertical">
+                    <TextBlock>Standard Primary + Icon</TextBlock>
+                    <controls:NewButton />
+                    <controls:NewButton IsEnabled="False"/>
+                </StackPanel>
+                
                 <!-- Standard Primary -->
                 <StackPanel Classes="VerticalTwoButtonStack" Orientation="Vertical">
                     <TextBlock>Standard Primary + Icon</TextBlock>

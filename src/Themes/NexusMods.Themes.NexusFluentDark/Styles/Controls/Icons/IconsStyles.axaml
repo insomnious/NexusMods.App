@@ -46,6 +46,8 @@
             <icons:UnifiedIcon Classes="Tab" />
             <icons:UnifiedIcon Classes="ChevronLeft" />
             <icons:UnifiedIcon Classes="ChevronRight" />
+            <icons:UnifiedIcon Classes="ChevronDown" />
+            <icons:UnifiedIcon Classes="ChevronUp" />
             <icons:UnifiedIcon Classes="FolderOutline" />
             <icons:UnifiedIcon Classes="FolderOpenOutline" />
             <icons:UnifiedIcon Classes="File" />
@@ -275,7 +277,15 @@
     <Style Selector="icons|UnifiedIcon.ChevronRight">
         <Setter Property="Value" Value="{x:Static icons:IconValues.ChevronRight}"/>
     </Style>
+    
+    <Style Selector="icons|UnifiedIcon.ChevronDown">
+        <Setter Property="Value" Value="{x:Static icons:IconValues.ChevronDown}"/>
+    </Style>
 
+    <Style Selector="icons|UnifiedIcon.ChevronUp">
+        <Setter Property="Value" Value="{x:Static icons:IconValues.ChevronUp}"/>
+    </Style>
+    
     <Style Selector="icons|UnifiedIcon.FolderOutline">
         <Setter Property="Value" Value="{x:Static icons:IconValues.Folder}"/>
     </Style>

@@ -1,0 +1,27 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:NexusMods.App.UI.Controls;assembly=NexusMods.App.UI"
+                    xmlns:icons="clr-namespace:NexusMods.Icons;assembly=NexusMods.Icons">
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <StackPanel Spacing="8">
+                <controls:NewButton Text="Button Text" />
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+    
+    <ControlTheme x:Key="{x:Type controls:NewButton}" TargetType="controls:NewButton">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel Orientation="Horizontal" Background="{TemplateBinding Background}" Opacity="0.8">
+                    <icons:UnifiedIcon Classes="Play"  />
+                    <TextBlock Text="{TemplateBinding Text}" />
+                    <icons:UnifiedIcon Classes="Play" Foreground="Aqua" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    
+    
+</ResourceDictionary>

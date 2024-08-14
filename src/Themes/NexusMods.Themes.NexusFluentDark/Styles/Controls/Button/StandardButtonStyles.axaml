@@ -34,8 +34,8 @@
 
                 <StackPanel Classes="VerticalTwoButtonStack" Orientation="Vertical">
                     <TextBlock>Standard Primary + Icon</TextBlock>
-                    <controls:NewButton Text="NewButton" ShowIcon="Left" />
-                    <controls:NewButton Text="NewButton" ShowIcon="Left" IsEnabled="False"/>
+                    <controls:NewButton Text="NewButton" VisibleIcon="Left" />
+                    <controls:NewButton Text="NewButton" VisibleIcon="Left" IsEnabled="False"/>
                 </StackPanel>
                 
                 <!-- Standard Primary -->

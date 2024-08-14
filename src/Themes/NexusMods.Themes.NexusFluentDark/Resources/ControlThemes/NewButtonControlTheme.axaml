@@ -10,21 +10,19 @@
                 
                 <Button Content="Test"></Button>
                 
-                <controls:NewButton ShowIcon="Left" Content="Button Text" />
+                <controls:NewButton Size="Medium" Type="Primary" />
+                <controls:NewButton VisibleIcon="Left" Type="Secondary" Content="Button Text" />
+                <controls:NewButton VisibleIcon="Both" Type="Tertiary"  />
                 
-                <controls:NewButton ShowIcon="Left" Classes="secondary" />
-                <controls:NewButton Classes="secondary strong" />
-                <controls:NewButton ShowIcon="Right" Classes="secondary strong sm" />
-                <controls:NewButton ShowIcon="Right" Classes="tertiary" />
                 <controls:NewButton Text="Lovely" />
                 <controls:NewButton
                     Text="Left Icon"
-                    ShowIcon="Left"
+                    VisibleIcon="Left"
                     LeftIcon="{x:Static icons:IconValues.Steam}" />
-                <controls:NewButton Text="Right Icon" ShowIcon="Right" />
-                <controls:NewButton Text="Both Icons" ShowIcon="Both" />
+                <controls:NewButton Text="Right Icon" VisibleIcon="Right" />
+                <controls:NewButton Text="Both Icons" VisibleIcon="Both" />
                 <controls:NewButton
-                    ShowIcon="Left"
+                    VisibleIcon="Left"
                     LeftIcon="{x:Static icons:IconValues.Visibility}"
                     ShowLabel="False" />
             </StackPanel>
@@ -32,17 +30,95 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type controls:NewButton}" TargetType="controls:NewButton" >
+        
+        <!-- default button styles to match avalonia's default from 
+        https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Themes.Fluent/Controls/Button.xaml-->
+        <Setter Property="Background" Value="{DynamicResource ButtonBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThemeThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Padding" Value="{DynamicResource ButtonPadding}" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        
+        
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <icons:UnifiedIcon Name="PART_LeftIcon" />
-                    <TextBlock Name="PART_Label" Text="{TemplateBinding Text}" />
-                    <icons:UnifiedIcon Name="PART_RightIcon" />
-                </StackPanel>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Padding="{TemplateBinding Padding}" >
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <icons:UnifiedIcon Name="PART_LeftIcon" />
+                        <TextBlock Name="PART_Label" Text="{TemplateBinding Text}" />
+                        <icons:UnifiedIcon Name="PART_RightIcon" />
+                    </StackPanel>
+                </Border>
             </ControlTemplate>
         </Setter>
+        
+        <Style Selector="^">
+            <Setter Property="CornerRadius" Value="{StaticResource Rounded}" />
+            <Setter Property="Height" Value="36" />
+
+            <!-- Don't set vertical margins, use vertical alignment to keep things centered instead -->
+            <Setter Property="Padding" Value="8, 0" />
+
+            <!-- Set an invisible border thickness to 1 to avoid size differences with outlined variants. -->
+            <Setter Property="BorderThickness" Value="1" />
+
+            <!-- Allow the BoxShadow for the focus to extend beyond the button bounds -->
+            <Setter Property="ClipToBounds" Value="False" />
+            
+            <Style Selector="^ TextBlock">
+                <Setter Property="Theme" Value="{StaticResource BodyLGNormalTheme}" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <!-- NOTE: Spacing is handled through margin of icon and images as icons seem to behave strangely -->
+            </Style>
+            
+        </Style>
+        
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPointerOver}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}" />
+            <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundPointerOver}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+          <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPressed}" />
+          <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPressed}" />
+          <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundPressed}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+          <Setter Property="Background" Value="{DynamicResource ButtonBackgroundDisabled}" />
+          <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushDisabled}" />
+          <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundDisabled}" />
+        </Style>
+        
+        <Style Selector="^:type-primary">
+            <Setter Property="Background" Value="{DynamicResource PrimaryModerateBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource NeutralInvertedBrush}" />
+            
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource PrimaryStrongBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource NeutralInvertedBrush}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Background" Value="{DynamicResource PrimarySubduedBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource NeutralInvertedBrush}" />
+            </Style>
+
+            <Style Selector="^:disabled">
+                <Setter Property="Background" Value="{DynamicResource PrimaryModerateBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource NeutralInvertedBrush}" />
+            </Style>
+        </Style>
+        
     </ControlTheme>
-    
     
     
 </ResourceDictionary>

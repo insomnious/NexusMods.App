@@ -74,7 +74,7 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Stretch"
                             IsVisible="False">
-                            <controls:NewButton ShowIcon="Left" Content="Button Text"  x:Name="AddGameButton" />
+                            <controls:NewButton VisibleIcon="Left" Content="Button Text"  x:Name="AddGameButton" />
                         </StackPanel>
                         
                         <!-- AddingGame -->

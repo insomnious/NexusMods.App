@@ -7,6 +7,7 @@ using NexusMods.Icons;
 
 namespace NexusMods.App.UI.Controls;
 
+[PseudoClasses(":size-medium", ":size-small", ":fill-none", ":fill-strong", ":fill-weak", ":type-primary", ":type-secondary", ":type-tertiary")]
 [TemplatePart("PART_LeftIcon",  typeof(UnifiedIcon))]
 [TemplatePart("PART_RightIcon", typeof(UnifiedIcon))]
 [TemplatePart("PART_Label", typeof(TextBlock))]
@@ -14,10 +15,10 @@ public class NewButton : Button
 {
     //protected override Type StyleKeyOverride { get; } = typeof(Button);
 
-    public enum ShowIcons
-    {
-        None,Left,Right,Both,
-    }
+    public enum VisibleIcons { None, Left, Right, Both, }
+    public enum Sizes { Medium, Small, }
+    public enum Types { None, Primary, Secondary, Tertiary, }
+    public enum Fills { None, Strong, Weak, }
 
     private UnifiedIcon? _leftIcon  = null;
     private UnifiedIcon? _rightIcon = null;
@@ -27,7 +28,10 @@ public class NewButton : Button
     public static readonly StyledProperty<IconValue?> LeftIconProperty = AvaloniaProperty.Register<NewButton, IconValue?>(nameof(LeftIcon), defaultValue: IconValues.ChevronDown);
     public static readonly StyledProperty<IconValue?> RightIconProperty = AvaloniaProperty.Register<NewButton, IconValue?>(nameof(RightIcon), defaultValue: IconValues.ChevronUp);
     
-    public static readonly AttachedProperty<ShowIcons> IconsProperty = AvaloniaProperty.RegisterAttached<NewButton, TemplatedControl, ShowIcons>("Icons", defaultValue: ShowIcons.None);
+    public static readonly AttachedProperty<VisibleIcons> VisibleIconProperty = AvaloniaProperty.RegisterAttached<NewButton, TemplatedControl, VisibleIcons>("VisibleIcon", defaultValue: VisibleIcons.None);
+    public static readonly AttachedProperty<Types> TypeProperty = AvaloniaProperty.RegisterAttached<NewButton, TemplatedControl, Types>("Type", defaultValue: Types.None);
+    public static readonly AttachedProperty<Sizes> SizeProperty = AvaloniaProperty.RegisterAttached<NewButton, TemplatedControl, Sizes>("Size", defaultValue: Sizes.Medium);
+    public static readonly AttachedProperty<Fills> FillProperty = AvaloniaProperty.RegisterAttached<NewButton, TemplatedControl, Fills>("Fill", defaultValue: Fills.None);
     public static readonly AttachedProperty<bool> ShowLabelProperty = AvaloniaProperty.RegisterAttached<NewButton, TemplatedControl, bool>("ShowLabel", defaultValue: true);
     
     public string? Text
@@ -36,10 +40,10 @@ public class NewButton : Button
         set => SetValue(TextProperty, value);
     }
     
-    public ShowIcons? ShowIcon
+    public VisibleIcons? VisibleIcon
     {
-        get => GetValue(IconsProperty);
-        set => SetValue(IconsProperty, value);
+        get => GetValue(VisibleIconProperty);
+        set => SetValue(VisibleIconProperty, value);
     }
     
     public IconValue? LeftIcon
@@ -58,6 +62,24 @@ public class NewButton : Button
     {
         get => GetValue(ShowLabelProperty);
         set => SetValue(ShowLabelProperty, value);
+    }
+    
+    public Types Type
+    {
+        get => GetValue(TypeProperty);
+        set => SetValue(TypeProperty, value);
+    }
+    
+    public Sizes Size
+    {
+        get => GetValue(SizeProperty);
+        set => SetValue(SizeProperty, value);
+    }
+    
+    public Fills Fill
+    {
+        get => GetValue(FillProperty);
+        set => SetValue(FillProperty, value);
     }
 
     protected override void OnClick()
@@ -83,27 +105,82 @@ public class NewButton : Button
 
         _label.IsVisible = ShowLabel;
 
-        switch (ShowIcon)
+        switch (VisibleIcon)
         {
-            case ShowIcons.None:
+            case VisibleIcons.None:
                 _leftIcon!.IsVisible = false;
                 _rightIcon!.IsVisible = false;
                 break;
-            case ShowIcons.Left:
+            case VisibleIcons.Left:
                 _leftIcon!.IsVisible = true;
                 _rightIcon!.IsVisible = false;
                 break;
-            case ShowIcons.Right:
+            case VisibleIcons.Right:
                 _leftIcon!.IsVisible = false;
                 _rightIcon!.IsVisible = true;
                 break;
-            case ShowIcons.Both:
+            case VisibleIcons.Both:
                 _leftIcon!.IsVisible = true;
                 _rightIcon!.IsVisible = true;
                 break;
             default:
                 _leftIcon!.IsVisible = false;
                 _rightIcon!.IsVisible = false;
+                break;
+        }
+        
+        switch (Size)
+        {
+            case Sizes.Medium:
+                PseudoClasses.Add(":size-medium");
+                PseudoClasses.Remove(":size-small");
+                break;
+            case Sizes.Small:
+                PseudoClasses.Remove(":size-medium");
+                PseudoClasses.Add(":size-small");
+                break;
+        }
+        
+        switch (Fill)
+        {
+            case Fills.None:
+                PseudoClasses.Add(":fill-none");
+                PseudoClasses.Remove(":fill-strong");
+                PseudoClasses.Remove(":fill-weak");
+                break;
+            case Fills.Strong:
+                PseudoClasses.Remove(":fill-none");
+                PseudoClasses.Add(":fill-strong");
+                PseudoClasses.Remove(":fill-weak");
+                break;
+            case Fills.Weak:
+                PseudoClasses.Remove(":fill-none");
+                PseudoClasses.Remove(":fill-strong");
+                PseudoClasses.Add(":fill-weak");
+                break;
+        }
+
+        switch (Type) 
+        {
+            case Types.None:
+                PseudoClasses.Remove(":type-primary");
+                PseudoClasses.Remove(":type-secondary");
+                PseudoClasses.Remove(":type-tertiary");
+                break;
+            case Types.Primary:
+                PseudoClasses.Add(":type-primary");
+                PseudoClasses.Remove(":type-secondary");
+                PseudoClasses.Remove(":type-tertiary");
+                break;
+            case Types.Secondary:
+                PseudoClasses.Remove(":type-primary");
+                PseudoClasses.Add(":type-secondary");
+                PseudoClasses.Remove(":type-tertiary");
+                break;
+            case Types.Tertiary:
+                PseudoClasses.Remove(":type-primary");
+                PseudoClasses.Remove(":type-secondary");
+                PseudoClasses.Add(":type-tertiary");
                 break;
         }
     }

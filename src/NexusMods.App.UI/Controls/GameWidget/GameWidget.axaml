@@ -12,7 +12,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:resources="clr-namespace:NexusMods.App.UI.Resources"
     xmlns:icons="clr-namespace:NexusMods.Icons;assembly=NexusMods.Icons"
-    xmlns:progressRing="clr-namespace:NexusMods.App.UI.Controls.ProgressRing">
+    xmlns:progressRing="clr-namespace:NexusMods.App.UI.Controls.ProgressRing"
+    xmlns:controls="clr-namespace:NexusMods.App.UI.Controls">
 
     <Design.DataContext>
         <gameWidget:GameWidgetDesignViewModel />
@@ -73,13 +74,7 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Stretch"
                             IsVisible="False">
-                            <Button Classes="Standard Secondary" x:Name="AddGameButton" HorizontalAlignment="Stretch">
-                                <StackPanel Orientation="Horizontal">
-                                    <icons:UnifiedIcon Classes="Add" />
-                                    <TextBlock Classes="BodyMDNormal" 
-                                               Text="{x:Static resources:Language.GameWidget__Add_game}"/>
-                                </StackPanel>
-                            </Button>
+                            <controls:NewButton ShowIcon="Left" Content="Button Text"  x:Name="AddGameButton" />
                         </StackPanel>
                         
                         <!-- AddingGame -->

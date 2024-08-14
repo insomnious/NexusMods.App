@@ -12,6 +12,7 @@ namespace NexusMods.App.UI.Controls;
 [TemplatePart("PART_Label", typeof(TextBlock))]
 public class NewButton : Button
 {
+    //protected override Type StyleKeyOverride { get; } = typeof(Button);
 
     public enum ShowIcons
     {
@@ -57,6 +58,13 @@ public class NewButton : Button
     {
         get => GetValue(ShowLabelProperty);
         set => SetValue(ShowLabelProperty, value);
+    }
+
+    protected override void OnClick()
+    {
+        base.OnClick();
+        
+        Console.WriteLine("Button Clicked");
     }
 
     /// <inheritdoc/>

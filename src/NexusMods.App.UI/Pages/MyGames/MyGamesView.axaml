@@ -21,8 +21,10 @@
                     Classes="Spacing-9"
                     Orientation="Vertical">
             
-            <Button Classes="secondary">Text</Button>
-            <controls:NewButton Text="Button Text" ShowIcon="Both" Classes="secondary" />
+            <Button>Button</Button>
+            <controls:NewButton Text="NewButtonText"></controls:NewButton>
+            <controls:NewButton Content="NewButton"></controls:NewButton>
+            <controls:NewButton>NewButton</controls:NewButton>
 
             <!-- Detected Games -->
             <StackPanel x:Name="DetectedGamesSection"

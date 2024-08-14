@@ -13,6 +13,6 @@
         <ResourceInclude Source="/Resources/ControlThemes/UnifiedIconControlTheme.axaml"/>
         <ResourceInclude Source="/Resources/ControlThemes/TopLevelMenuItemHeader.axaml"/>
         <ResourceInclude Source="/Resources/ControlThemes/EmptyStateControlTheme.axaml"/>
-        
+        <ResourceInclude Source="/Resources/ControlThemes/NewButtonControlTheme.axaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

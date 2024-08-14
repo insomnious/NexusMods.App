@@ -13,20 +13,9 @@
             </StackPanel>
         </Border>
     </Design.PreviewWith>
-
-    <Style Selector="controls|NewButton">
-        <!-- Set Defaults -->
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Button>
-                    <StackPanel Orientation="Horizontal">
-                        <icons:UnifiedIcon Classes="ChevronDown" x:Name="LeftIcon" />
-                        <TextBlock Text="{TemplateBinding Text}" />
-                        <icons:UnifiedIcon Classes="ChevronDown" x:Name="RightIcon"  />
-                    </StackPanel>
-                </Button>
-            </ControlTemplate>
-        </Setter>
-    </Style>
+    
+    <!-- Control theme is located at src/Themes/NexusMods.Themes.NexusFluentDark/Resources/ControlThemes/NewButtonControlTheme.axaml
+    Default style is found here as well as the default template -->
+    
 </Styles>
 

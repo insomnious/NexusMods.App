@@ -34,8 +34,8 @@
 
                 <StackPanel Classes="VerticalTwoButtonStack" Orientation="Vertical">
                     <TextBlock>Standard Primary + Icon</TextBlock>
-                    <controls:NewButton />
-                    <controls:NewButton IsEnabled="False"/>
+                    <controls:NewButton Text="NewButton" ShowIcon="Left" />
+                    <controls:NewButton Text="NewButton" ShowIcon="Left" IsEnabled="False"/>
                 </StackPanel>
                 
                 <!-- Standard Primary -->
@@ -263,6 +263,7 @@
             <Setter Property="Opacity" Value="{StaticResource OpacityDisabledElement}" />
         </Style>
     </Style>
+
 
 
     <!-- Standard Primary -->

@@ -11,7 +11,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:resources="clr-namespace:NexusMods.App.UI.Resources"
     xmlns:myGames="clr-namespace:NexusMods.App.UI.Pages.MyGames"
-    xmlns:gameWidget="clr-namespace:NexusMods.App.UI.Controls.GameWidget">
+    xmlns:gameWidget="clr-namespace:NexusMods.App.UI.Controls.GameWidget"
+    xmlns:controls="clr-namespace:NexusMods.App.UI.Controls">
     <Design.DataContext>
         <myGames:MyGamesDesignViewModel />
     </Design.DataContext>
@@ -19,6 +20,9 @@
         <StackPanel Margin="24"
                     Classes="Spacing-9"
                     Orientation="Vertical">
+            
+            <Button Classes="secondary">Text</Button>
+            <controls:NewButton Text="Button Text" ShowIcon="Both" Classes="secondary" />
 
             <!-- Detected Games -->
             <StackPanel x:Name="DetectedGamesSection"

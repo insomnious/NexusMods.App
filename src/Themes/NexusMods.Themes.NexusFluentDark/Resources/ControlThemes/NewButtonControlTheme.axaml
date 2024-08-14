@@ -1,27 +1,129 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:NexusMods.App.UI.Controls;assembly=NexusMods.App.UI"
-                    xmlns:icons="clr-namespace:NexusMods.Icons;assembly=NexusMods.Icons">
+                    xmlns:icons="clr-namespace:NexusMods.Icons;assembly=NexusMods.Icons"
+                    xmlns:panels="clr-namespace:Avalonia.Labs.Panels;assembly=Avalonia.Labs.Panels">
 
     <Design.PreviewWith>
         <Border Padding="20">
             <StackPanel Spacing="8">
-                <controls:NewButton Text="Button Text" />
+                
+                <controls:NewButton Background="Red"/>
+                
+                <controls:NewButton ShowIcon="Left" Classes="secondary" />
+                <controls:NewButton Classes="secondary strong" />
+                <controls:NewButton ShowIcon="Right" Classes="secondary strong sm" />
+                <controls:NewButton ShowIcon="Right" Classes="tertiary" />
+                <controls:NewButton Text="Lovely" />
+                <controls:NewButton
+                    Text="Left Icon"
+                    ShowIcon="Left"
+                    LeftIcon="{x:Static icons:IconValues.Steam}" />
+                <controls:NewButton Text="Right Icon" ShowIcon="Right" />
+                <controls:NewButton Text="Both Icons" ShowIcon="Both" />
+                <controls:NewButton
+                    ShowIcon="Left"
+                    LeftIcon="{x:Static icons:IconValues.Visibility}"
+                    ShowLabel="False" />
             </StackPanel>
         </Border>
     </Design.PreviewWith>
-    
+
     <ControlTheme x:Key="{x:Type controls:NewButton}" TargetType="controls:NewButton">
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel Orientation="Horizontal" Background="{TemplateBinding Background}" Opacity="0.8">
-                    <icons:UnifiedIcon Classes="Play"  />
-                    <TextBlock Text="{TemplateBinding Text}" />
-                    <icons:UnifiedIcon Classes="Play" Foreground="Aqua" />
-                </StackPanel>
+                <Button> 
+                    <panels:FlexPanel Direction="Row" AlignContent="Center">
+                        <icons:UnifiedIcon Name="PART_LeftIcon" />
+                        <TextBlock Text="{TemplateBinding Text}" Name="PART_Label" />
+                        <icons:UnifiedIcon Name="PART_RightIcon" />
+                    </panels:FlexPanel>
+                </Button>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^">
+
+            <!-- default button -->
+            <Style Selector="^ Button">
+                <Setter Property="Background" Value="{DynamicResource PrimaryModerateBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource NeutralInvertedBrush}" />
+                <Setter Property="CornerRadius" Value="{StaticResource Rounded}" />
+
+                <Setter Property="Height" Value="36" />
+                <!-- Don't set vertical margins, use vertical alignment to keep things centered instead -->
+                <Setter Property="Padding" Value="8, 0" />
+
+                <!-- Set an invisible border thickness to 1 to avoid size differences with outlined variants. -->
+                <Setter Property="BorderThickness" Value="1" />
+
+                <!-- Allow the BoxShadow for the focus to extend beyond the button bounds -->
+                <Setter Property="ClipToBounds" Value="False" />
+
+                <Style Selector="^ TextBlock">
+                    <Setter Property="Theme" Value="{StaticResource BodyLGNormalTheme}" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                </Style>
+
+                <Style Selector="^ icons|UnifiedIcon">
+                    <!-- <Setter Property="Foreground" Value="Red" /> -->
+                </Style>
+            </Style>
+
+            <!-- secondary button -->
+            <Style Selector="^.secondary Button">
+                <Setter Property="Background" Value="{DynamicResource SurfaceTransparentBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource NeutralModerateBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource StrokeTranslucentModerateBrush}" />
+            </Style>
+            
+            <!-- secondary strong button -->
+            <Style Selector="^.secondary.strong Button">
+                <Setter Property="Background" Value="{DynamicResource NeutralStrongBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource NeutralInvertedBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SurfaceTransparentBrush}" />
+            </Style>
+            
+            <!-- secondary strong sm button -->
+            <Style Selector="^.secondary.strong.sm Button">
+                
+                <Setter Property="Height" Value="28" />
+                
+                <Style Selector="^ Button">
+                    <Setter Property="Background" Value="{DynamicResource NeutralStrongBrush}" />
+                    <Setter Property="Foreground" Value="{DynamicResource NeutralInvertedBrush}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource SurfaceTransparentBrush}" />
+                </Style>
+                
+                <Style Selector="^ TextBlock">
+                    <Setter Property="Theme" Value="{StaticResource BodyMDNormalTheme}" />
+                </Style>
+                
+                <Style Selector="^ icons|UnifiedIcon">
+                    <Setter Property="Size" Value="16" />
+                </Style>
+            </Style>
+
+            <!-- tertiary button -->
+            <Style Selector="^.tertiary Button">
+                <Setter Property="Background" Value="{DynamicResource SurfaceTransparentBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource NeutralModerateBrush}" />
+            </Style>
+        </Style>
+
+        <!--
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource PrimarySubduedBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource NeutralInvertedBrush}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Background" Value="{DynamicResource PrimaryModerateBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource NeutralInvertedBrush}" />
+        </Style>
+        -->
+
     </ControlTheme>
-    
-    
+
 </ResourceDictionary>

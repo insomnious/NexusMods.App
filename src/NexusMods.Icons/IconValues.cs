@@ -1,6 +1,9 @@
 using Avalonia;
 using Avalonia.Media;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 using NexusMods.Icons.SimpleVector;
+using Projektanker.Icons.Avalonia;
 
 namespace NexusMods.Icons;
 
@@ -377,7 +380,12 @@ public static class IconValues
 
     // The Black and White Nexus 'Developer' Logo.
     // This is the variation of the Nexus logo used in the App, and on the Discord.
-    public static readonly IconValue Nexus = new AvaloniaSvg("avares://NexusMods.App.UI/Assets/nexus-logo-white.svg");
+    public static readonly IconValue Nexus = new AvaloniaSvg("avares://NexusMods.App.UI/Assets/nexus-logo.svg");
+    
+    public static readonly IconValue Avatar = new AvaloniaImage(new Bitmap(AssetLoader.Open(new Uri("avares://NexusMods.App.UI/Assets/DesignTime/cyberpunk_game.png"))));
+    
+    
+    
 
     // From Design System "Custom Icons" section on Figma
     public static readonly IconValue Stethoscope = new SimpleVectorIcon(new SimpleVectorIconImage(

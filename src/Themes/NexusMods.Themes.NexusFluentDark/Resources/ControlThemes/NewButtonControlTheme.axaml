@@ -59,6 +59,10 @@
                         <TextBlock>Test 3</TextBlock>
                         </StackPanel>
                     </controls:NewButton>
+                    <controls:NewButton IsEnabled="False" VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Nexus}" />
+                    <controls:NewButton VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Nexus}" />
+                    <controls:NewButton IsEnabled="False" VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Avatar}" />
+                    <controls:NewButton VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Avatar}" />
                     <controls:NewButton />
                 </StackPanel>
                 
@@ -143,7 +147,7 @@
                     </StackPanel>
                     <StackPanel Grid.Row="7" Grid.Column="0"  Spacing="8">
                         <TextBlock Text="Fill: Strong" Theme="{StaticResource BodyMDNormalTheme}"  />
-                        <controls:NewButton Type="Secondary" Fill="Strong" Text="Play" VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Done}" />
+                        <controls:NewButton Type="Secondary" Fill="Strong" Text="Play" VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Nexus}" />
                     </StackPanel>
                     
                     <TextBlock Grid.Row="1" Grid.Column="2" Text="Small" Theme="{StaticResource BodyMDNormalTheme}"/>
@@ -158,8 +162,8 @@
                     </StackPanel>
                     <StackPanel Grid.Row="7" Grid.Column="2"  Spacing="8">
                         <TextBlock Text="Fill: Strong" Theme="{StaticResource BodyMDNormalTheme}"  />
-                        <controls:NewButton Type="Secondary" Size="Small" Fill="Strong" VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Done}" />
-                        <controls:NewButton Type="Secondary" IsEnabled="False"  Size="Small" Fill="Strong" VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Done}" />
+                        <controls:NewButton Type="Secondary" Size="Small" Fill="Strong" VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Nexus}" />
+                        <controls:NewButton Type="Secondary" IsEnabled="False"  Size="Small" Fill="Strong" VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Nexus}" />
                     </StackPanel>
                 </Grid>
                 
@@ -182,12 +186,12 @@
                     
                     <StackPanel Grid.Row="3" Grid.Column="2" Spacing="8">
                         <TextBlock Text="Fill: None" Theme="{StaticResource BodyMDNormalTheme}"  />
-                        <controls:NewButton Type="Tertiary" Size="Small"  />
+                        <controls:NewButton Type="Tertiary" Size="Small" VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Nexus}"   />
                     </StackPanel>
                     
                     <StackPanel Grid.Row="5" Grid.Column="2"  Spacing="8">
                         <TextBlock Text="Fill: Weak" Theme="{StaticResource BodyMDNormalTheme}"  />
-                        <controls:NewButton Type="Tertiary" Size="Small" Fill="Weak" />
+                        <controls:NewButton Type="Tertiary" Size="Small" Fill="Weak" VisibleIcon="Left"  LeftIcon="{x:Static icons:IconValues.Nexus}"   />
                     </StackPanel>
                 </Grid>
             </StackPanel>

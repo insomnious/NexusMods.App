@@ -12,7 +12,8 @@
     xmlns:resources="clr-namespace:NexusMods.App.UI.Resources"
     xmlns:myGames="clr-namespace:NexusMods.App.UI.Pages.MyGames"
     xmlns:gameWidget="clr-namespace:NexusMods.App.UI.Controls.GameWidget"
-    xmlns:controls="clr-namespace:NexusMods.App.UI.Controls">
+    xmlns:controls="clr-namespace:NexusMods.App.UI.Controls"
+    xmlns:icons="clr-namespace:NexusMods.Icons;assembly=NexusMods.Icons">
     <Design.DataContext>
         <myGames:MyGamesDesignViewModel />
     </Design.DataContext>
@@ -20,6 +21,13 @@
         <StackPanel Margin="24"
                     Classes="Spacing-9"
                     Orientation="Vertical">
+            
+            <StackPanel>
+                <controls:NewButton IsEnabled="False" VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Nexus}" />
+                <controls:NewButton VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Nexus}" />
+                <controls:NewButton IsEnabled="False" VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Avatar}" />
+                <controls:NewButton VisibleIcon="Left" LeftIcon="{x:Static icons:IconValues.Avatar}" />
+            </StackPanel>
             
             <!-- Detected Games -->
             <StackPanel x:Name="DetectedGamesSection"

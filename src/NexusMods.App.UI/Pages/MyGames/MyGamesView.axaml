@@ -21,14 +21,6 @@
                     Classes="Spacing-9"
                     Orientation="Vertical">
             
-            <Button>Button</Button>
-            <controls:NewButton VisibleIcon="Left" Type="Primary" Content="Button Text" />
-            <controls:NewButton VisibleIcon="Left" />
-            <controls:NewButton Size="Medium" Type="Secondary" />
-            <controls:NewButton VisibleIcon="Right" />
-            <controls:NewButton VisibleIcon="Both" Type="Tertiary"  />
-            <controls:NewButton Text="Lovely" />
-
             <!-- Detected Games -->
             <StackPanel x:Name="DetectedGamesSection"
                         Classes="Spacing-4"

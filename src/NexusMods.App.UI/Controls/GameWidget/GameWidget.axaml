@@ -74,7 +74,13 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Stretch"
                             IsVisible="False">
-                            <controls:NewButton VisibleIcon="Left" Content="Button Text"  x:Name="AddGameButton" />
+                            <controls:NewButton  x:Name="AddGameButton"
+                                                 VisibleIcon="Left" 
+                                                 LeftIcon="{x:Static icons:IconValues.Done}"
+                                                 Type="Secondary" 
+                                                 Fill="Strong"
+                                                 Text="{x:Static resources:Language.GameWidget__Add_game}"
+                                                />
                         </StackPanel>
                         
                         <!-- AddingGame -->
@@ -98,21 +104,23 @@
                               VerticalAlignment="Center"
                               HorizontalAlignment="Stretch"
                               Classes="Spacing-2">
-                            <Button Classes="Standard Tertiary Weak" x:Name="ViewGameButton"
-                                    HorizontalAlignment="Stretch"
-                                    Grid.Column="0">
-                                <StackPanel Orientation="Horizontal">
-                                    <icons:UnifiedIcon Classes="Check" />
-                                    <TextBlock Classes="BodyMDNormal" 
-                                               Text="{x:Static resources:Language.GameWidget__View}"/>
-                                </StackPanel>
-                            </Button>
-                            <Button Classes="Standard Tertiary Weak" 
-                                    HorizontalAlignment="Right"
-                                    x:Name="RemoveGameButton"
-                                    Grid.Column="2">
-                                <icons:UnifiedIcon Classes="DeleteForever" />
-                            </Button>
+                            
+                            <controls:NewButton Grid.Column="0" x:Name="ViewGameButton"
+                                                               VisibleIcon="Left" 
+                                                               LeftIcon="{x:Static icons:IconValues.Done}"
+                                                               Type="Tertiary" 
+                                                               Fill="Weak"  
+                                                               Text="{x:Static resources:Language.GameWidget__View}"
+                                                               HorizontalAlignment="Stretch"
+                                                               />
+                            
+                            <controls:NewButton Grid.Column="2" x:Name="RemoveGameButton"
+                                                VisibleIcon="Left" 
+                                                LeftIcon="{x:Static icons:IconValues.DeleteForever}"
+                                                Type="Tertiary" 
+                                                Fill="Weak" 
+                                                ShowLabel="False"
+                                                />
                         </Grid>
                         
                         <!-- RemovingGame -->

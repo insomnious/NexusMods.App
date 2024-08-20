@@ -98,6 +98,7 @@ public class Startup
         var app = AppBuilder
             .Configure(serviceProvider.GetRequiredService<App>)
             .UsePlatformDetect()
+            .With(new SkiaOptions { UseOpacitySaveLayer = true })
             .LogToTrace()
             .UseReactiveUI();
 
